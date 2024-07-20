@@ -109,7 +109,6 @@
 #               number: 80
 
 
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -153,7 +152,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: wisecow.34.29.149.154.nip.io  # Replace with your actual domain or nip.io domain
+  - host: wisecow.34.29.149.154.nip.io
     http:
       paths:
       - path: /
