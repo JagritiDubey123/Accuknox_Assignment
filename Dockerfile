@@ -21,7 +21,14 @@
 # CMD ["./wisecow.sh"]
 
 FROM ubuntu:latest
-RUN apt-get update && apt-get install -y fortune cowsay netcat
+
+# Install necessary packages
+RUN apt-get update && \
+    apt-get install -y fortune cowsay netcat-openbsd
+
+# Copy and set permissions for the script
 COPY wisecow.sh /wisecow.sh
 RUN chmod +x /wisecow.sh
+
+# Set the script as the default command
 CMD ["/wisecow.sh"]
