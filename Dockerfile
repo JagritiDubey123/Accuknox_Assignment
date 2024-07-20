@@ -7,10 +7,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy the script into the container
-COPY script.sh /app/script.sh
+COPY wisecow.sh /app/wisecow.sh
 
 # Make the script executable
-RUN chmod +x /app/script.sh
+RUN chmod +x /app/wisecow.sh
 
 # Set the working directory
 WORKDIR /app
@@ -19,4 +19,4 @@ WORKDIR /app
 EXPOSE 4499
 
 # Run the script
-CMD ["./script.sh"]
+CMD ["./wisecow.sh"]
