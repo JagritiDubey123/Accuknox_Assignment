@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: wisecow
-        image: wisecow:latest
+        image: gcr.io/wide-factor-429605-v2/wisecow:latest
         ports:
         - containerPort: 4499
 
@@ -39,6 +39,7 @@ metadata:
   name: wisecow-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   tls:
   - hosts:
