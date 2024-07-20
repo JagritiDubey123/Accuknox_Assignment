@@ -126,6 +126,7 @@ spec:
       containers:
       - name: wisecow
         image: gcr.io/wide-factor-429605-v2/wisecow:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 4499
 
