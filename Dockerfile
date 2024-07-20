@@ -1,22 +1,21 @@
-# Use an official Debian runtime as a parent image
 FROM debian:latest
 
 # Install necessary packages
 RUN apt-get update && \
-    apt-get install -y cowsay fortune netcat && \
+    apt-get install -y cowsay fortune netcat-openbsd && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy the script into the container
+# Copy the shell script into the image
 COPY wisecow.sh /app/wisecow.sh
 
-# Make the script executable
+# Make the shell script executable
 RUN chmod +x /app/wisecow.sh
 
 # Set the working directory
 WORKDIR /app
 
-# Expose the port on which the server will run
+# Expose the port the application will run on
 EXPOSE 4499
 
-# Run the script
+# Run the application
 CMD ["./wisecow.sh"]
