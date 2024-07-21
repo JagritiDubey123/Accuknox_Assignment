@@ -1,3 +1,114 @@
+# # apiVersion: apps/v1
+# # kind: Deployment
+# # metadata:
+# #   name: wisecow-deployment
+# # spec:
+# #   replicas: 3
+# #   selector:
+# #     matchLabels:
+# #       app: wisecow
+# #   template:
+# #     metadata:
+# #       labels:
+# #         app: wisecow
+# #     spec:
+# #       containers:
+# #       - name: wisecow
+# #         image: gcr.io/wide-factor-429605-v2/wisecow:latest  # Corrected image name
+# #         ports:
+# #         - containerPort: 4499
+
+# # ---
+# # apiVersion: v1
+# # kind: Service
+# # metadata:
+# #   name: wisecow-service
+# # spec:
+# #   selector:
+# #     app: wisecow
+# #   ports:
+# #     - protocol: TCP
+# #       port: 80
+# #       targetPort: 4499
+# #   type: LoadBalancer
+
+# # ---
+# # apiVersion: networking.k8s.io/v1
+# # kind: Ingress
+# # metadata:
+# #   name: wisecow-ingress
+# #   annotations:
+# #     nginx.ingress.kubernetes.io/rewrite-target: /
+# # spec:
+# #   rules:
+# #   - host: wisecow.your-domain.com  # Replace with your actual domain
+# #     http:
+# #       paths:
+# #       - path: /
+# #         pathType: Prefix
+# #         backend:
+# #           service:
+# #             name: wisecow-service
+# #             port:
+# #               number: 80
+
+
+
+
+# # apiVersion: apps/v1
+# # kind: Deployment
+# # metadata:
+# #   name: wisecow-deployment
+# # spec:
+# #   replicas: 3
+# #   selector:
+# #     matchLabels:
+# #       app: wisecow
+# #   template:
+# #     metadata:
+# #       labels:
+# #         app: wisecow
+# #     spec:
+# #       containers:
+# #       - name: wisecow
+# #         image: gcr.io/wide-factor-429605-v2/wisecow:latest
+# #         ports:
+# #         - containerPort: 4499
+
+# # ---
+# # apiVersion: v1
+# # kind: Service
+# # metadata:
+# #   name: wisecow-service
+# # spec:
+# #   selector:
+# #     app: wisecow
+# #   ports:
+# #     - protocol: TCP
+# #       port: 80
+# #       targetPort: 4499
+# #   type: LoadBalancer
+
+# # ---
+# # apiVersion: networking.k8s.io/v1
+# # kind: Ingress
+# # metadata:
+# #   name: wisecow-ingress
+# #   annotations:
+# #     nginx.ingress.kubernetes.io/rewrite-target: /
+# # spec:
+# #   rules:
+# #   - http:
+# #       paths:
+# #       - path: /
+# #         pathType: Prefix
+# #         backend:
+# #           service:
+# #             name: wisecow-service
+# #             port:
+# #               number: 80
+
+
 # apiVersion: apps/v1
 # kind: Deployment
 # metadata:
@@ -14,7 +125,8 @@
 #     spec:
 #       containers:
 #       - name: wisecow
-#         image: gcr.io/wide-factor-429605-v2/wisecow:latest  # Corrected image name
+#         image: gcr.io/wide-factor-429605-v2/wiscow
+#         imagePullPolicy: Always
 #         ports:
 #         - containerPort: 4499
 
@@ -41,7 +153,7 @@
 #     nginx.ingress.kubernetes.io/rewrite-target: /
 # spec:
 #   rules:
-#   - host: wisecow.your-domain.com  # Replace with your actual domain
+#   - host: wisecow.34.29.149.154.nip.io
 #     http:
 #       paths:
 #       - path: /
@@ -51,63 +163,6 @@
 #             name: wisecow-service
 #             port:
 #               number: 80
-
-
-
-
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: wisecow-deployment
-# spec:
-#   replicas: 3
-#   selector:
-#     matchLabels:
-#       app: wisecow
-#   template:
-#     metadata:
-#       labels:
-#         app: wisecow
-#     spec:
-#       containers:
-#       - name: wisecow
-#         image: gcr.io/wide-factor-429605-v2/wisecow:latest
-#         ports:
-#         - containerPort: 4499
-
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: wisecow-service
-# spec:
-#   selector:
-#     app: wisecow
-#   ports:
-#     - protocol: TCP
-#       port: 80
-#       targetPort: 4499
-#   type: LoadBalancer
-
-# ---
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: wisecow-ingress
-#   annotations:
-#     nginx.ingress.kubernetes.io/rewrite-target: /
-# spec:
-#   rules:
-#   - http:
-#       paths:
-#       - path: /
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: wisecow-service
-#             port:
-#               number: 80
-
 
 apiVersion: apps/v1
 kind: Deployment
