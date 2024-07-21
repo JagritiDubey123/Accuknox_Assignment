@@ -38,7 +38,7 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
     cowsay \
     fortune \
-    netcat \
+    netcat-openbsd \
     dos2unix
 
 # Copy the script
@@ -49,4 +49,5 @@ RUN dos2unix /usr/local/bin/wisecow.sh && chmod +x /usr/local/bin/wisecow.sh
 
 # Define the entrypoint
 ENTRYPOINT ["/usr/bin/env", "bash", "/usr/local/bin/wisecow.sh"]
+
 
